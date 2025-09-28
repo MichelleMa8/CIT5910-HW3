@@ -17,7 +17,12 @@ public class CoatExperimentSimulator {
     }
 
     public int[] simulateCoatExperiment(int iterations) {
-        return null;
+        int[] numIter = new int[iterations];
+        for (int i = 0; i < numIter.length; i ++){
+            int[] permutation = RandomOrderGenerator.getRandomOrder(numberOfPeople);
+            numIter[i] = numPplWhoGotTheirCoat(permutation);
+        }
+        return numIter;
     }
 
     public double answerToQuestionOne(int[] results) {
