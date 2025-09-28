@@ -38,11 +38,20 @@ public class PositiveInteger {
             return true;
         }
 
+        int digits = 0;
+        int t = num;
+        while (t > 0) {
+            digits++;
+            t /= 10;
+        }
+
         int sum = 0;
         int tmp = num;
+
+
         while (tmp > 0){
             int lastDigit = tmp % 10;
-            sum += lastDigit * lastDigit;
+            sum += (int) Math.pow(lastDigit, digits);
             tmp /= 10;
         }
         return sum == num;
