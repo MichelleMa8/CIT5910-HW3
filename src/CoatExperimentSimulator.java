@@ -46,5 +46,20 @@ public class CoatExperimentSimulator {
         }
         return (double) sum / results.length;
     }
+
+    public static void main(String[] args) {
+        int numPeople = 10;
+        int iterations = 10000;
+
+        CoatExperimentSimulator simulator = new CoatExperimentSimulator(numPeople);
+        int[] results = simulator.simulateCoatExperiment(iterations);
+
+        double probZero = simulator.answerToQuestionOne(results);
+        double avgCorrect = simulator.answerToQuestionTwo(results);
+
+        System.out.printf("People: %d, Iterations: %d%n", numPeople, iterations);
+        System.out.printf("Q1: Probability of 0 people getting their coat = %.5f%n", probZero);
+        System.out.printf("Q2: Average number of people getting their coat = %.5f%n", avgCorrect);
+    }
 }
 
